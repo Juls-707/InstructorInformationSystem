@@ -1,0 +1,155 @@
+@model Instructor
+@{
+    ViewData["Title"] = "Add Instructor";
+}
+
+<div class="create-instructor-page">
+
+    <!-- Header -->
+    <div class="create-header">
+        <div>
+            <span class="create-badge">? INSTRUCTOR MANAGEMENT</span>
+            <h1>Add New Instructor</h1>
+            <p>Let's add someone new to your instructor directory!</p>
+        </div>
+
+        <a asp-action="Index" class="create-back-btn">
+            ? Back to list
+        </a>
+    </div>
+
+    <!-- Form Card -->
+    <section class="create-card">
+
+        <div class="create-card-heading">
+            <div class="create-heading-icon">?</div>
+            <div>
+                <h2>Instructor Information</h2>
+                <p>Please complete all required information below.</p>
+            </div>
+        </div>
+
+        <div asp-validation-summary="ModelOnly"
+             class="alert alert-danger validation-summary"
+             role="alert"></div>
+
+        <form asp-action="Create" method="post">
+
+            <!-- Personal Information -->
+            <div class="create-section-title">
+                <span>01</span>
+                <h3>Personal Details</h3>
+            </div>
+
+            <div class="create-form-grid">
+
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label"></label>
+                    <input asp-for="FullName" class="form-control"
+                           autocomplete="name"
+                           placeholder="Enter full name" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Age" class="form-label"></label>
+                    <input asp-for="Age" class="form-control"
+                           type="number" min="1" max="120"
+                           placeholder="Enter age" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Gender" class="form-label"></label>
+                    <select asp-for="Gender" class="form-select">
+                        <option value="">Select gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Prefer not to say</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Address" class="form-label"></label>
+                    <input asp-for="Address" class="form-control"
+                           autocomplete="street-address"
+                           placeholder="Enter address" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <!-- Contact Information -->
+            <div class="create-section-title">
+                <span>02</span>
+                <h3>Contact Information</h3>
+            </div>
+
+            <div class="create-form-grid">
+
+                <div class="mb-3">
+                    <label asp-for="ContactNumber" class="form-label"></label>
+                    <input asp-for="ContactNumber" class="form-control"
+                           type="tel" autocomplete="tel"
+                           placeholder="Enter contact number" />
+                    <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="EmailAddress" class="form-label"></label>
+                    <input asp-for="EmailAddress" class="form-control"
+                           type="email" autocomplete="email"
+                           placeholder="Enter email address" />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <!-- Professional Information -->
+            <div class="create-section-title">
+                <span>03</span>
+                <h3>Professional Information</h3>
+            </div>
+
+            <div class="create-form-grid">
+
+                <div class="mb-3">
+                    <label asp-for="Designation" class="form-label"></label>
+                    <input asp-for="Designation" class="form-control"
+                           placeholder="Enter designation" />
+                    <span asp-validation-for="Designation" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Majorship" class="form-label"></label>
+                    <input asp-for="Majorship" class="form-control"
+                           placeholder="Enter majorship" />
+                    <span asp-validation-for="Majorship" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="BachelorDegree" class="form-label"></label>
+                    <input asp-for="BachelorDegree" class="form-control"
+                           placeholder="Enter bachelor degree" />
+                    <span asp-validation-for="BachelorDegree" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="create-form-actions">
+                <a asp-action="Index" class="create-cancel-btn">Cancel</a>
+                <button type="submit" class="create-save-btn">
+                    ? Save Instructor
+                </button>
+            </div>
+
+        </form>
+    </section>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

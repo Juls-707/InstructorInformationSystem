@@ -1,0 +1,120 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="dashboard-page">
+
+    <!-- Welcome Banner -->
+    <section class="dashboard-welcome">
+        <div class="welcome-content">
+            <span class="dashboard-badge">♡ INSTRUCTOR PORTAL</span>
+            <h1>Hello, @User.Identity?.Name! 🌸</h1>
+            <p>Welcome back! Let's manage your instructor information.</p>
+        </div>
+
+        <div class="welcome-action">
+            <a asp-controller="Instructor"
+               asp-action="Create"
+               class="dashboard-add-btn">
+                + Add Instructor
+            </a>
+        </div>
+    </section>
+
+    <!-- Dashboard Statistics -->
+    <div class="dashboard-stats">
+
+        <div class="dashboard-stat-card">
+            <div class="stat-icon pink-icon">♙</div>
+            <div>
+                <p>Total Instructors</p>
+                <h2>@ViewBag.InstructorCount</h2>
+                <span>Instructor records</span>
+            </div>
+        </div>
+
+        <div class="dashboard-stat-card">
+            <div class="stat-icon purple-icon">♡</div>
+            <div>
+                <p>Account Status</p>
+                <h2 class="active-status">Active</h2>
+                <span>Successfully signed in</span>
+            </div>
+        </div>
+
+        <div class="dashboard-stat-card">
+            <div class="stat-icon peach-icon">✿</div>
+            <div>
+                <p>Account Type</p>
+                <h2>Administrator</h2>
+                <span>Instructor management</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Main Dashboard Content -->
+    <div class="dashboard-content">
+
+        <!-- Quick Actions -->
+        <section class="dashboard-section">
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">GET STARTED</span>
+                    <h2>Quick Actions</h2>
+                    <p>What would you like to do today?</p>
+                </div>
+            </div>
+
+            <div class="dashboard-actions">
+
+                <a asp-controller="Instructor"
+                   asp-action="Index"
+                   class="dashboard-action-card">
+                    <div class="action-icon action-pink">▤</div>
+                    <h3>View Instructors</h3>
+                    <p>Browse and manage saved instructor records.</p>
+                    <span class="action-link">View records →</span>
+                </a>
+
+                <a asp-controller="Instructor"
+                   asp-action="Create"
+                   class="dashboard-action-card">
+                    <div class="action-icon action-purple">＋</div>
+                    <h3>Add Instructor</h3>
+                    <p>Create and save a new instructor record.</p>
+                    <span class="action-link">Add new →</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Account Information -->
+        <aside class="dashboard-account">
+            <div class="account-decoration">♡</div>
+
+            <div class="account-avatar">
+                ♡
+            </div>
+
+            <span class="section-label">YOUR ACCOUNT</span>
+            <h2>Account Details</h2>
+
+            <div class="account-info">
+                <span>Email Address</span>
+                <strong>@ViewBag.AccountEmail</strong>
+            </div>
+
+            <div class="account-info">
+                <span>Status</span>
+                <strong class="account-active">● Active</strong>
+            </div>
+
+            <div class="account-footer">
+                Thank you for managing instructor information! 🌷
+            </div>
+        </aside>
+
+    </div>
+
+</div>
